@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stack</title>
+</head>
+<body>
+    <h1>Stack</h1>
+</body>
+<script>
+
+class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Stack{
+    constructor(){
+        this.first = null;
+        this.last = null
+        this.size = 0;
+    }
+
+    push(value){
+        let newNode = new Node(value);
+
+        if(this.size === 0){
+            this.first = newNode.value;
+            this.last = newNode.value;
+        } 
+        else{
+            let temp = this.first;
+            this.first = newNode;
+            this.first.next = temp;    
+        }
+
+        this.size ++;
+        return `the size is ${this.size}`;
+    }
+
+    pop(){
+
+
+        if(!this.first){
+            return null;
+        }
+        var temp = this.first;
+
+        if(this.first === this.last){
+            this.last = null;
+        }
+        
+        this.first = this.first.next;
+        this.size--;  
+
+        return `The value poped is ${temp.value}, the size is ${this.size}`;   
+            
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
